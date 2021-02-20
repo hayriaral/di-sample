@@ -1,12 +1,15 @@
 package com.aralapps.android.study.disample.engine
 
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
 
 @Module
-abstract class DieselEngineModule {
+class DieselEngineModule constructor(horsePower: Int) {
 
-    @Binds
-    abstract fun bindEngine(engine: DieselEngine): Engine
+    val _horsePower = horsePower
+
+    @Provides
+    fun provideEngine(): Engine {
+        return DieselEngine(_horsePower)
+    }
 }
