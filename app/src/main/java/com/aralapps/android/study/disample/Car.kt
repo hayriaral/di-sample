@@ -10,6 +10,11 @@ class Car @Inject constructor(
         Log.d(TAG, "driving")
     }
 
+    @Inject
+    fun enableRemote(remote: Remote) {
+        remote.setListener(this)
+    }
+
     companion object {
         private const val TAG = "Car"
     }
