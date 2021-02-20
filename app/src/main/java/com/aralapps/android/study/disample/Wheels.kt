@@ -1,6 +1,8 @@
 package com.aralapps.android.study.disample
 
-import javax.inject.Inject
+/**
+ * Assume that we don't own [Wheels] class so we can't annotate it with @Inject constructor.
+ */
+class Wheels(private val rims: Rims, private val tires: Tires) {
 
-class Wheels @Inject constructor() {
 }
