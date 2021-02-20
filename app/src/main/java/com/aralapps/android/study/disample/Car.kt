@@ -5,11 +5,13 @@ import com.aralapps.android.study.disample.engine.Engine
 import javax.inject.Inject
 
 class Car @Inject constructor(
-    private val engine: Engine, private val wheels: Wheels
+    private val engine: Engine,
+    private val wheels: Wheels,
+    private val driver: Driver
 ) {
     fun drive() {
         engine.start()
-        Log.d(TAG, "driving")
+        Log.d(TAG, "$driver drives $this")
     }
 
     @Inject
