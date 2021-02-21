@@ -2,6 +2,7 @@ package com.aralapps.android.study.disample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.aralapps.android.study.disample.engine.DieselEngineModule
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -16,11 +17,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component: ActivityComponent = DaggerActivityComponent.builder()
-            .horsePower(250)
-            .engineCapacity(1400)
-            .appComponent(((application as MyApp)).getAppComponent())
-            .build()
+        val component: ActivityComponent = ((application as MyApp)).getAppComponent()
+            .getActivityComponent(DieselEngineModule(120))
         component.inject(this)
         car1.drive()
         car2.drive()

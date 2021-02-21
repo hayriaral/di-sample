@@ -1,20 +1,21 @@
 package com.aralapps.android.study.disample
 
+import com.aralapps.android.study.disample.engine.DieselEngineModule
 import com.aralapps.android.study.disample.engine.PetrolEngineModule
 import dagger.BindsInstance
 import dagger.Component
+import dagger.Subcomponent
 import javax.inject.Named
 
 @PerActivity
-@Component(
-    dependencies = [AppComponent::class],
-    modules = [WheelsModule::class, PetrolEngineModule::class]
+@Subcomponent(
+    modules = [WheelsModule::class, DieselEngineModule::class]
 )
 interface ActivityComponent {
 
     fun inject(mainActivity: MainActivity)
 
-    @Component.Builder
+/*    @Component.Builder
     interface Builder {
         @BindsInstance
         fun horsePower(@Named("Horse power") horsePower: Int): Builder
@@ -27,5 +28,5 @@ interface ActivityComponent {
         fun appComponent(component: AppComponent): Builder
 
         fun build(): ActivityComponent
-    }
+    }*/
 }
