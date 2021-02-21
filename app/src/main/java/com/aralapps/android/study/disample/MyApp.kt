@@ -3,16 +3,13 @@ package com.aralapps.android.study.disample
 import android.app.Application
 
 class MyApp : Application() {
-    private lateinit var component: CarComponent
+    private lateinit var component: AppComponent
 
     override fun onCreate() {
         super.onCreate()
 
-        component = DaggerCarComponent.builder()
-            .horsePower(120)
-            .engineCapacity(1400)
-            .build()
+        component = DaggerAppComponent.create()
     }
 
-    fun getAppComponent(): CarComponent = component
+    fun getAppComponent(): AppComponent = component
 }

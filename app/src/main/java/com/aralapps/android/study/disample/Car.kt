@@ -4,6 +4,7 @@ import android.util.Log
 import com.aralapps.android.study.disample.engine.Engine
 import javax.inject.Inject
 
+@PerActivity
 class Car @Inject constructor(
     private val engine: Engine,
     private val wheels: Wheels,
