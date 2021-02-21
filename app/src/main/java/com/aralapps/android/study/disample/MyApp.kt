@@ -8,7 +8,7 @@ class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        component = DaggerAppComponent.create()
+        component = DaggerAppComponent.factory().create(DriverModule("Hayri"))
     }
 
     fun getAppComponent(): AppComponent = component
