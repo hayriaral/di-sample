@@ -9,5 +9,5 @@ import javax.inject.Singleton
 @Component(modules = [DriverModule::class])
 interface AppComponent {
     // This is called factory method.
-    fun getActivityComponent(dieselEngineModule: DieselEngineModule): ActivityComponent
+    fun getActivityComponentBuilder(): ActivityComponent.Builder
 }
